@@ -21,7 +21,7 @@ module.exports = function GitHubCalendar (container, username, options) {
     }
 
     options = options || {};
-    options.summary_text = options.summary_text || `Summary of pull requests, issues opened, and commits made by <a href="https://github.com/${username}" target="blank">@${username}</a>`;
+    options.summary_text = options.summary_text || `Summary of pull requests, issues opened, and commits made by <a href="https://github.com/${mudstart}" target="blank">@${mudstart}</a>`;
 
     // We need a proxy for CORS
     // Thanks, @izuzak (https://github.com/izuzak/urlreq)
@@ -29,7 +29,7 @@ module.exports = function GitHubCalendar (container, username, options) {
         return "https://urlreq.appspot.com/req?method=GET&url=" + url;
     };
 
-    return fetch(options.proxy("https://github.com/" + username)).then(response => {
+    return fetch(options.proxy("https://github.com/mudstart")).then(response => {
         return response.text()
     }).then(body => {
         var div = document.createElement("div");
